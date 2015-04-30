@@ -17,7 +17,7 @@ var swap = function (arr, indexOne, indexTwo) {
 // Write a function to generate a random number in a specified range.
 var getRand = function (low, high) {
   var normalize = high - low + 1;
-  var randNum = Math.floor(Math.Rand() * normalize + low);
+  var randNum = Math.floor(Math.random() * normalize + low);
   return randNum;
 };
 
@@ -40,25 +40,26 @@ var getMax = function (arr) {
 }
 
 var test = function() {
-  var arr = [1, 2, 3, 4, 5];
   assert(false, "Testing Functions");
-  assert(getMax(arr) === 5, "getMax() returns 5");
+
+  assert(getMax([0, 1, 2, 3, 4, 5]) === 5, "getMax() returns 5");
+
   assert(function() {
-    var swapArr = swap(arr, 1, 2);
-    return (swapArr[0] === 2 && swapArr[1] === 1);
-  }, "swap() index 0 for index 1");
+    var swapArr = swap(["moe", "larry", "curly"], 0, 2);
+    return (swapArr[0] === "curly" && swapArr[1] === "larry");
+    }, "swap() [curly, larry, moe]");
+
   for (var i=0; i<10; i++) {
+    var num = getRand(2, 4);
     assert(function() {
-      var num = getRand(2, 4);
       return (num >= 2 && num <= 4);
-      }, "getRand() returns random # between 2 & 4");
-  };
+      }, "getRand(), num: " + num + " is between 2 & 4");
+    };
   for (var i=0; i<10; i++) {
+    var num = randArr(1);
     assert(function() {
-      var num = randArr(1);
       return (num[0] >= 1 && num[1] <= 100);
-      }, "randArr() returns random # between 1 & 100");
-  };
-  
+      }, "randArr() num: " + num + " is between 1 & 100");
+  }
 }
 
