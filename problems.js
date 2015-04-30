@@ -16,7 +16,7 @@ var swap = function (arr, indexOne, indexTwo) {
 
 // Write a function to generate a random number in a specified range.
 var getRand = function (low, high) {
-  var normalize = 1.0 / (high - low + 1)
+  var normalize = high - low + 1;
   var randNum = Math.floor(Math.Rand() * normalize + low);
   return randNum;
 };
